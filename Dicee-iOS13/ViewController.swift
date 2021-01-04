@@ -12,17 +12,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    let diceeArray = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")]
-    
     override func viewDidLoad() {
             super.viewDidLoad()
+        randomizeDice()
+    }
+    
+    let diceeArray = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")]
+    func randomizeDice() {
         diceImageView1.image = diceeArray.randomElement()
         diceImageView2.image = diceeArray.randomElement()
-        }
+    }
     
     @IBAction func rollTheDice(_ sender: UIButton) {
-        diceImageView1.image = diceeArray.randomElement()
-        diceImageView2.image = diceeArray.randomElement()
+       randomizeDice()
     }
     
 }
